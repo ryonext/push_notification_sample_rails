@@ -4,16 +4,15 @@ table
   thead
     tr
       th
+        Token
       th
-      th
+        Enabled
 
   tbody
-    - @platform_endpoints.each do |platform_endpoint|
+    - @platform_endpoints.each do |endpoint|
       tr
-        td = link_to 'Show', platform_endpoint
-        td = link_to 'Edit', edit_platform_endpoint_path(platform_endpoint)
-        td = link_to 'Destroy', platform_endpoint, data: { confirm: 'Are you sure?' }, method: :delete
-
+        td
+          = endpoint.attributes["Token"]
+        td
+          = endpoint.attributes["Enabled"]
 br
-
-= link_to 'New Platform endpoint', new_platform_endpoint_path
