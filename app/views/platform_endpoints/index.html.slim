@@ -1,0 +1,19 @@
+h1 Listing platform_endpoints
+
+table
+  thead
+    tr
+      th
+      th
+      th
+
+  tbody
+    - @platform_endpoints.each do |platform_endpoint|
+      tr
+        td = link_to 'Show', platform_endpoint
+        td = link_to 'Edit', edit_platform_endpoint_path(platform_endpoint)
+        td = link_to 'Destroy', platform_endpoint, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Platform endpoint', new_platform_endpoint_path
