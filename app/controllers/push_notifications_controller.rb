@@ -14,7 +14,7 @@ class PushNotificationsController < ApplicationController
 
   # GET /push_notifications/new
   def new
-    @push_notification = PushNotification.new
+    @push_notification = PushNotification.new(endpoint_arn: params[:endpoint_arn])
   end
 
   # GET /push_notifications/1/edit
@@ -69,6 +69,6 @@ class PushNotificationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def push_notification_params
-      params.fetch(:push_notification, {})
+      params.require(:push_notification).permit(:message, :endpoint_arn)
     end
 end

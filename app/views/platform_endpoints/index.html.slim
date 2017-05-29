@@ -4,6 +4,8 @@ table
   thead
     tr
       th
+        | Endpoint arn
+      th
         | Token
       th
         | Enabled
@@ -14,9 +16,11 @@ table
     - @platform_endpoints.each do |endpoint|
       tr
         td
+          = endpoint.endpoint_arn
+        td
           = endpoint.attributes["Token"]
         td
           = endpoint.attributes["Enabled"]
         td
-          = link_to "Send message", new_push_notification_path(token: endpoint.attributes['Token'])
+          = link_to "Send message", new_push_notification_path(endpoint_arn: endpoint.endpoint_arn)
 br
