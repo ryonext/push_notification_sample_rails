@@ -1,0 +1,19 @@
+h1 Listing push_notifications
+
+table
+  thead
+    tr
+      th
+      th
+      th
+
+  tbody
+    - @push_notifications.each do |push_notification|
+      tr
+        td = link_to 'Show', push_notification
+        td = link_to 'Edit', edit_push_notification_path(push_notification)
+        td = link_to 'Destroy', push_notification, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Push notification', new_push_notification_path
