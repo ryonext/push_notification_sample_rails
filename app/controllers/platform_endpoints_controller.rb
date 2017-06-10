@@ -1,5 +1,5 @@
 class PlatformEndpointsController < ApplicationController
-  before_action :set_platform_endpoint, only: [:show, :edit, :update, :destroy]
+  before_action :set_platform_endpoint, only: [:show]
 
   # GET /platform_endpoints
   # GET /platform_endpoints.json
@@ -10,15 +10,6 @@ class PlatformEndpointsController < ApplicationController
   # GET /platform_endpoints/1
   # GET /platform_endpoints/1.json
   def show
-  end
-
-  # GET /platform_endpoints/new
-  def new
-    @platform_endpoint = PlatformEndpoint.new
-  end
-
-  # GET /platform_endpoints/1/edit
-  def edit
   end
 
   # POST /platform_endpoints
@@ -34,30 +25,6 @@ class PlatformEndpointsController < ApplicationController
         format.html { render :new }
         format.json { render json: @platform_endpoint.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # PATCH/PUT /platform_endpoints/1
-  # PATCH/PUT /platform_endpoints/1.json
-  def update
-    respond_to do |format|
-      if @platform_endpoint.update(platform_endpoint_params)
-        format.html { redirect_to @platform_endpoint, notice: 'Platform endpoint was successfully updated.' }
-        format.json { render :show, status: :ok, location: @platform_endpoint }
-      else
-        format.html { render :edit }
-        format.json { render json: @platform_endpoint.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /platform_endpoints/1
-  # DELETE /platform_endpoints/1.json
-  def destroy
-    @platform_endpoint.destroy
-    respond_to do |format|
-      format.html { redirect_to platform_endpoints_url, notice: 'Platform endpoint was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
