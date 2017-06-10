@@ -1,0 +1,13 @@
+# config/application.yml
+defaults: &defaults
+  region: your-region
+  platform_application_arn: your-platform-application-arn
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
