@@ -1,5 +1,6 @@
 class PlatformEndpointsController < ApplicationController
   before_action :set_platform_endpoint, only: [:show]
+  protect_from_forgery with: :null_session, only: [:create]
 
   # GET /platform_endpoints
   # GET /platform_endpoints.json
@@ -15,6 +16,7 @@ class PlatformEndpointsController < ApplicationController
   # POST /platform_endpoints
   # POST /platform_endpoints.json
   def create
+    binding.pry
     @platform_endpoint = PlatformEndpoint.new(platform_endpoint_params)
 
     respond_to do |format|
@@ -36,6 +38,6 @@ class PlatformEndpointsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def platform_endpoint_params
-      params.fetch(:platform_endpoint, {})
+      params.require(:platform_endpoint).permit(:token)
     end
 end
